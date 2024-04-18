@@ -1,5 +1,5 @@
 const { connectToMongoDB, closeMongoDBConnection } = require('../utils/db');
-
+const {ObjectID} = require('bson');
 // Function to get the users collection
 async function getUsersCollection() {
   const client = await connectToMongoDB();
@@ -39,7 +39,7 @@ async function updateUser(collection, userID, userData) {
     console.log(userID,userData)
     
     await collection.updateOne(
-      { _id: userID }, 
+      { _id: ObjectID(userID) }, 
       { $set: userData }
     );
     

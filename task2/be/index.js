@@ -1,6 +1,7 @@
+const http = require('http');
+const userController = require('./controllers/users.c');
+const cors = require('cors');
 const express = require('express');
-const userController = require('./controllers/users.c')
-const cors = require('cors')
 const app = express();
 const PORT = process.env.PORT || 9000;
 
@@ -16,8 +17,10 @@ app.use(express.urlencoded({ extended: true }));
 app.get('/', userController.getUser);
 app.post('/update', userController.updateUser);
 
+// Create HTTP server
+const server = http.createServer(app);
 
 // Start the server
-app.listen(PORT, () => {
-    console.log(`http://localhost:9000`);
+server.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
 });
