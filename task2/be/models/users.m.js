@@ -17,7 +17,45 @@ async function getAllUsers() {
     throw error;
   }
 }
+async function updateAllUser(users){
+  // const users = await getAllUsers();
+  const collection = await getUsersCollection();
+  const list = {};
+
+  users.forEach(user => {
+    const { _id, username, email, birthdate } = user;
+    list[_id] = { username, email, birthdate };
+  });
+
+  for (let i = 0; i < users.length; i++) {
+    await updateUser(collection, users[i]._id, list[users[i]._id]);
+  }
+
+  return list
+}
+// Function to update a user in the collection
+async function updateUser(collection, userID, userData) {
+  try {
+    console.log(userID,userData)
+    
+    await collection.updateOne(
+      { _id: userID }, 
+      { $set: userData }
+    );
+    
+    // if (result.modifiedCount === 0) {
+    //   throw new Error(`User '${userID}' not found or update failed.`);
+    // }
+
+  } catch (error) {
+    console.error("Error updating user:", error);
+    throw error;
+  }
+}
+
 
 module.exports = {
-  getAllUsers
+  getAllUsers,
+  updateAllUser,
+  
 };

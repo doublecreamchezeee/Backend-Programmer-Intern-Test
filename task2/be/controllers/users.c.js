@@ -20,6 +20,18 @@ async function getUser(req, res) {
     }
 }
 
+async function updateUser(req, res) {
+    try {
+        const users = req.body
+        const userUpdate = await userModel.updateAllUser(users);
+        res.json({ message: "Records updated successfully", userUpdate });
+    } catch (error) {
+        console.error("Error updating users:", error);
+        res.status(500).json({ error: "Internal server error" });
+    }
+}
+
 module.exports = {
-    getUser
+    getUser, 
+    updateUser
 };

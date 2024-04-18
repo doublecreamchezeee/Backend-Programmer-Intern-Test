@@ -9,6 +9,8 @@ app.use(express.urlencoded({ extended: true }));
 
 // Routes
 app.get('/', userController.getUser);
+app.post('/update', userController.updateUser);
+
 
 // Start the server
 app.listen(PORT, () => {
