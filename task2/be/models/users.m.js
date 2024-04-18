@@ -15,8 +15,6 @@ async function getAllUsers() {
   } catch (error) {
     console.error("Error getting users:", error);
     throw error;
-  } finally {
-    await closeMongoDBConnection();
   }
 }
 
