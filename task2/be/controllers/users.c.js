@@ -9,7 +9,6 @@ async function getUser(req, res) {
             return user.username.includes(name) || user.email.includes(name);
         });
         
-        console.log(name)
         if (name !== undefined)
             res.json(filteredUsersbyName);
         else
