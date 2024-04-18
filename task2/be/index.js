@@ -3,7 +3,7 @@ const userController = require('./controllers/users.c');
 const cors = require('cors');
 const express = require('express');
 const app = express();
-const PORT = process.env.PORT || 9000;
+const PORT = process.env.PORT || 30;
 
 app.use(cors({
     origin: 'http://localhost:3000'
