@@ -73,8 +73,11 @@ export default function Tree({ data_stash, main_id = null, is_vertical = true, n
 
     // Function to retrieve parents of a node
     function hierarchyGetterParents(d) {
+      console.log(d.rels);
+
       // Check if the node has both 'father' and 'mother' properties in its 'rels'
       if (!d.rels?.hasOwnProperty("father") || !d.rels?.hasOwnProperty("mother")) return;
+
       // If the node has parents, filter out any null values and map over the parent IDs
       // Return an array containing the corresponding parent nodes from the 'data_stash'
       return [d.rels?.father, d.rels?.mother].filter(d => d).map(id => data_stash.find(d => d.id === id));
