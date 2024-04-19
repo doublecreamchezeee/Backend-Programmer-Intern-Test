@@ -4,6 +4,7 @@ import './App.css';
 
 function App() {
   const [userData, setUserData] = useState([]);
+  const [searchValue, setSearchValue] = useState('');
 
   useEffect(() => {
     axios.get('http://localhost:9000/')
@@ -15,7 +16,21 @@ function App() {
       });
   }, []);
 
-  const handleInputChange = (e, userId, field) => {
+  const handleSearchChange = (e) => {
+    setSearchValue(e.target.value);
+  };
+
+  const handleSearch = () => {
+    axios.get(`http://localhost:9000?name=${searchValue}`)
+      .then(response => {
+        setUserData(response.data);
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  };
+
+  const handleDataChange = (e, userId, field) => {
     const newValue = e.target.value;
     setUserData(prevUserData =>
       prevUserData.map(user => {
@@ -40,6 +55,14 @@ function App() {
   return (
     <div className="App">
       <h1>User Data</h1>
+      <input
+        type="text"
+        className='textInput'
+        value={searchValue}
+        onChange={handleSearchChange}
+        placeholder="Search by name..."
+      />
+      <button onClick={handleSearch}>Search</button>
       <table>
         <thead>
           <tr>
@@ -53,9 +76,9 @@ function App() {
           {userData.map(user => (
             <tr key={user._id}>
               {/* <td>{user._id}</td> */}
-              <td><input type="text" className="textInput" value={user.username} onChange={(e) => handleInputChange(e, user._id, 'username')} /></td>
-              <td><input type="text" className="textInput" value={user.email} onChange={(e) => handleInputChange(e, user._id, 'email')} /></td>
-              <td><input type="text" className="textInput" value={user.birthdate} onChange={(e) => handleInputChange(e, user._id, 'birthdate')} /></td>
+              <td><input type="text" className="textInput" value={user.username} onChange={(e) => handleDataChange(e, user._id, 'username')} /></td>
+              <td><input type="text" className="textInput" value={user.email} onChange={(e) => handleDataChange(e, user._id, 'email')} /></td>
+              <td><input type="text" className="textInput" value={user.birthdate} onChange={(e) => handleDataChange(e, user._id, 'birthdate')} /></td>
             </tr>
           ))}
         </tbody>

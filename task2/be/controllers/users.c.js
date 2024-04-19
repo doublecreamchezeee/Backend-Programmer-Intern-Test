@@ -4,7 +4,7 @@ async function getUser(req, res) {
     try {
         const {name} = req.query;
         const users = await userModel.getAllUsers();
-        
+        console.log('Search name: ', name);
         const filteredUsersbyName = users.filter(user => {
             return user.username.includes(name) || user.email.includes(name);
         });
