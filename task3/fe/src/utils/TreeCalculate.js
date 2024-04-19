@@ -1,3 +1,5 @@
+import d3 from "./d3"
+
 export default function Tree({ data_stash, main_id = null, is_vertical = true, node_separation = 250, level_separation = 150 }) {
   const main = main_id !== null ? data_stash.find(d => d.id === main_id) : data_stash[0],
     tree_children = TreePositions(main, 'children', false),
