@@ -1,23 +1,35 @@
-import logo from './logo.svg';
 import './App.css';
-
+import {useState, useEffect} from "react"
+import data from './data.json'
 function App() {
+  const [members, setMembers] = useState([])
+  const [loading, setLoadding] = useState(true);
+
+  // create the family tree list 
+  const initFT = () => {
+    setMembers(data)
+    setLoadding(false)
+  }
+
+  useEffect(() => {
+    initFT();
+  }, [loading])
+  
+  const cardDisplay = () => {
+    const fullname = d => `${d.data['firstName'] || ''} ${d.data['lastName'] || ''}`
+    fullname.create_form = "{firstName} {lastName}"
+    return [fullname]
+  }
+
+  useEffect(() => {
+    if (loading || !members) return;
+    
+    const card_dim = {w:220,h:70,text_x:75,text_y:15};
+    const card_display = cardDisplay()
+  })
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        
     </div>
   );
 }
