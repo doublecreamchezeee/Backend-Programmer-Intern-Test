@@ -1,17 +1,12 @@
 [
     {
-        "_id": {
-            "$oid": "66221a93d64bd8039d702f89"
-        },
         "rels": {
-            "spouses": [],
+            "spouses": [
+                "6fkwef032jd3a331if302f00"
+            ],
             "children": [],
-            "father": {
-                "$oid": "6621f2d9c64aa97217e04729"
-            },
-            "mother": {
-                "$oid": "6621f2ff794d2ba02ec164eb"
-            }
+            "father": "6621f2d9c64aa97217e04729",
+            "mother": "6621f2ff794d2ba02ec164eb"
         },
         "data": {
             "firstName": "Hehe",
@@ -19,94 +14,63 @@
             "birthday": "01/01/2010",
             "gender": "M"
         },
-        "createdAt": {
-            "$date": {
-                "$numberLong": "1713500749293"
-            }
-        },
-        "updatedAt": {
-            "$date": {
-                "$numberLong": "1713500927773"
-            }
-        },
-        "__v": {
-            "$numberInt": "0"
-        }
+        "createdAt": "2024-19-4",
+        "updatedAt": "2024-19-4",
+        "id": "66221a93d64bd8039d702f89"
     },
     {
-        "_id": {
-            "$oid": "6621f2d9c64aa97217e04729"
+        "rels": {
+            "spouses": [
+                "66221a93d64bd8039d702f89"
+            ],
+            "children": []
         },
+        "data": {
+            "firstName": "Hihi",
+            "lastName": "Trần",
+            "birthday": "01/01/2010",
+            "gender": "F"
+        },
+        "createdAt": "2024-19-4",
+        "updatedAt": "2024-19-4",
+        "id": "6fkwef032jd3a331if302f00"
+    },
+    {
         "rels": {
             "children": [
-                {
-                    "$oid": "6621f24d794d2ba02ec164dc"
-                }
+                "6621f24d794d2ba02ec164dc"
             ],
             "spouses": [
-                {
-                    "$oid": "6621f2ff794d2ba02ec164eb"
-                }
+                "6621f2ff794d2ba02ec164eb"
             ]
         },
         "data": {
             "firstName": "Thành",
             "lastName": "Trí",
             "birthday": "15/10/2003",
-            "gender": "M",
-            "link": "",
-            "avatar": ""
+            "gender": "M"
         },
-        "createdAt": {
-            "$date": {
-                "$numberLong": "1713500900870"
-            }
-        },
-        "updatedAt": {
-            "$date": {
-                "$numberLong": "1713500927743"
-            }
-        },
-        "__v": {
-            "$numberInt": "0"
-        }
+        "createdAt": "2024-19-4",
+        "updatedAt": "2024-19-4",
+        "id": "6621f2d9c64aa97217e04729"
     },
     {
-        "_id": {
-            "$oid": "6621f2ff794d2ba02ec164eb"
-        },
         "rels": {
             "spouses": [
-                {
-                    "$oid": "6621f2d9c64aa97217e04729"
-                }
+                "6621f2d9c64aa97217e04729"
             ],
             "children": [
-                {
-                    "$oid": "6621f24d794d2ba02ec164dc"
-                }
+                "6621f24d794d2ba02ec164dc"
             ]
         },
         "data": {
             "firstName": "Khải ",
             "lastName": "Hoàn",
             "birthday": "27/01/2002",
-            "gender": "F",
-            "link": "",
-            "avatar": ""
+            "gender": "F"
         },
-        "createdAt": {
-            "$date": {
-                "$numberLong": "1713500927712"
-            }
-        },
-        "updatedAt": {
-            "$date": {
-                "$numberLong": "1713500927712"
-            }
-        },
-        "__v": {
-            "$numberInt": "0"
-        }
+        "createdAt": "2024-19-4",
+        "updatedAt": "2024-19-4",
+        "id": "6621f2ff794d2ba02ec164eb"
     }
 ]
