@@ -7,7 +7,7 @@ function App() {
   const [searchValue, setSearchValue] = useState('');
 
   useEffect(() => {
-    axios.get('http://localhost:9000/')
+    axios.get('http://54.253.35.37:9000/')
       .then(response => {
         setUserData(response.data);
       })
@@ -21,7 +21,7 @@ function App() {
   };
 
   const handleSearch = () => {
-    axios.get(`http://localhost:9000?name=${searchValue}`)
+    axios.get(`http://54.253.35.37:9000?name=${searchValue}`)
       .then(response => {
         setUserData(response.data);
       })
