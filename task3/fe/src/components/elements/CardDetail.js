@@ -1,6 +1,6 @@
 export function CardBody({ d, card_dim, card_display }) {
-    return {
-      template: (`
+  return {
+    template: (`
       <g class="card-body">
         <rect width="${card_dim.w}" height="${card_dim.h}" class="card-body-rect" />
         <g transform="translate(${card_dim.text_x}, ${card_dim.text_y})">
@@ -11,6 +11,15 @@ export function CardBody({ d, card_dim, card_display }) {
         </g>
       </g>
     `)
-    }
   }
-  
+}
+
+export function CardImage({ d, image, card_dim, maleIcon, femaleIcon }) {
+  return ({
+    template: (`
+    <g style="transform: translate(${card_dim.img_x}px,${card_dim.img_y}px);" class="card_image" clip-path="url(#card_image_clip)">
+        <image href="/${d.data.data.gender}.jpg" height="${card_dim.img_h}" width="${card_dim.img_w}" preserveAspectRatio="xMidYMin slice" referrerpolicy="no-referrer" />
+      </g>
+  `)
+  })
+}
