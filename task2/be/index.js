@@ -5,9 +5,9 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 9000;
 
-app.use(cors({
-    origin: 'http://localhost:3000'
-}));
+// app.use(cors({
+//     origin: 'http://localhost:3000'
+// }));
 
 // Middleware
 app.use(express.json()); 
