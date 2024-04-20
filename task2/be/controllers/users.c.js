@@ -15,7 +15,7 @@ async function getUser(req, res) {
             res.json(users)
     } catch (error) {
         console.error("Error getting users:", error);
-        res.status(500).json({ error: "Internal server error" });
+        res.status(500).json({ error: error});
     }
 }
 
@@ -26,7 +26,7 @@ async function updateUser(req, res) {
         res.json({ message: "Records updated successfully", userUpdate });
     } catch (error) {
         console.error("Error updating users:", error);
-        res.status(500).json({ error: "Internal server error" });
+        res.status(500).json({ error: error });
     }
 }
 
