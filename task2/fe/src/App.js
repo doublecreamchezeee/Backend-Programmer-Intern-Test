@@ -63,7 +63,7 @@ function App() {
           , userData
           , {
             headers: {
-              authenticate: 'thanhtri'
+              authorization: 'thanhtri'
             }
           })
           .then(response => {
