@@ -1,4 +1,5 @@
 const { MongoClient, ServerApiVersion } = require('mongodb');
+// const MongoClient = require('mongodb').MongoClient;
 
 // MongoDB connection URI
 const uri = "mongodb+srv://nguyenthanhtri2112:htht01225923050@thanhtri.ivktvpn.mongodb.net/?retryWrites=true&w=majority&appName=thanhtri";
@@ -9,6 +10,8 @@ const client = new MongoClient(uri, {
     version: ServerApiVersion.v1,
     strict: true,
     deprecationErrors: true,
+    useUnifiedTopology: true,
+    useNewUrlParser: true 
   }
 });
 
