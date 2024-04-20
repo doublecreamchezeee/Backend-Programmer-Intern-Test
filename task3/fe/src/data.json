@@ -1,51 +1,12 @@
 [
     {
         "rels": {
-            "spouses": [
-                "6fkwef032jd3a331if302f00"
-            ],
             "children": [
-            ],
-            "father": "6621f2d9c64aa97217e04729",
-            "mother": "6621f2ff794d2ba02ec164eb"
-        },
-        "data": {
-            "firstName": "Anh",
-            "lastName": "Tuấn",
-            "birthday": "01/01/2010",
-            "gender": "M"
-        },
-        "createdAt": "2024-19-4",
-        "updatedAt": "2024-19-4",
-        "id": "66221a93d64bd8039d702f89"
-    },
-    {
-        "rels": {
-            "spouses": [
-                "66221a93d64bd8039d702f89"
-            ],
-            "children": [
-                "66221a93d692304030vwe123"
-            ]
-        },
-        "data": {
-            "firstName": "Nhật",
-            "lastName": "Trí",
-            "birthday": "01/01/2010",
-            "gender": "F"
-        },
-        "createdAt": "2024-19-4",
-        "updatedAt": "2024-19-4",
-        "id": "6fkwef032jd3a331if302f00"
-    },
-    {
-        "rels": {
-            "children": [
-                "66221a93d692304030vwe123",
-                "66221a93d64bd8039d702f89"
+                "3",
+                "4"
             ],
             "spouses": [
-                "6621f2ff794d2ba02ec164eb"
+                "2"
             ]
         },
         "data": {
@@ -56,33 +17,16 @@
         },
         "createdAt": "2024-19-4",
         "updatedAt": "2024-19-4",
-        "id": "6621f2d9c64aa97217e04729"
-    },
-    {
-        "rels": {
-            "spouses": [],
-            "children": [],
-            "father": "6621f2d9c64aa97217e04729",
-            "mother": "6621f2ff794d2ba02ec164eb"
-        },
-        "data": {
-            "firstName": "Gia",
-            "lastName": "Minh",
-            "birthday": "01/02/2020",
-            "gender": "M"
-        },
-        "createdAt": "2024-20-4",
-        "updatedAt": "2024-20-4",
-        "id": "66221a93d692304030vwe123"
+        "id": "1"
     },
     {
         "rels": {
             "spouses": [
-                "6621f2d9c64aa97217e04729"
+                "1"
             ],
             "children": [
-                "6621f24d794d2ba02ec164dc",
-                "66221a93d692304030vwe123"
+                "3",
+                "4"
             ]
         },
         "data": {
@@ -93,6 +37,62 @@
         },
         "createdAt": "2024-19-4",
         "updatedAt": "2024-19-4",
-        "id": "6621f2ff794d2ba02ec164eb"
+        "id": "2"
+    },
+    {
+        "rels": {
+            "spouses": [],
+            "children": [],
+            "father": "1",
+            "mother": "2"
+        },
+        "data": {
+            "firstName": "Gia",
+            "lastName": "Minh",
+            "birthday": "01/02/2020",
+            "gender": "M"
+        },
+        "createdAt": "2024-20-4",
+        "updatedAt": "2024-20-4",
+        "id": "4"
+    },
+    {
+        "rels": {
+            "spouses": [
+                "5"
+            ],
+            "children": [
+            ],
+            "father": "1",
+            "mother": "2"
+        },
+        "data": {
+            "firstName": "Anh",
+            "lastName": "Tuấn",
+            "birthday": "01/01/2010",
+            "gender": "M"
+        },
+        "createdAt": "2024-19-4",
+        "updatedAt": "2024-19-4",
+        "id": "3"
+    },
+    {
+        "rels": {
+            "spouses": [
+                "3"
+            ],
+            "children": [
+                
+            ]
+        },
+        "data": {
+            "firstName": "Nhật",
+            "lastName": "Trí",
+            "birthday": "01/01/2010",
+            "gender": "F"
+        },
+        "createdAt": "2024-19-4",
+        "updatedAt": "2024-19-4",
+        "id": "5"
     }
 ]

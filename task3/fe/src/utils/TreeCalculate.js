@@ -1,6 +1,8 @@
 import d3 from "./d3"
+import {sortChildrenWithSpouses} from "./TreeHandler"
 
 export default function Tree({ data_stash, main_id = null, is_vertical = true, node_separation = 250, level_separation = 150 }) {
+  sortChildrenWithSpouses(data_stash)
   const main = main_id !== null ? data_stash.find(d => d.id === main_id) : data_stash[0],
     tree_children = TreePositions(main, 'children', false),
     tree_parents = TreePositions(main, 'parents', true)
@@ -57,10 +59,10 @@ export default function Tree({ data_stash, main_id = null, is_vertical = true, n
       return offset;
     }
 
-    // function hasCh(d) {return !!d.children}
+    function hasCh(d) {return !!d.children}
     function sameParent(a, b) { return a.parent === b.parent }
     function sameBothParents(a, b) { return (a.data.rels.father === b.data.rels.father) && (a.data.rels.mother === b.data.rels.mother) }
-    // function someChildren(a, b) {return hasCh(a) || hasCh(b)}
+    function someChildren(a, b) {return hasCh(a) || hasCh(b)}
     function hasSpouses(d) { return d.data.rels.spouses && d.data.rels.spouses.length > 0 }
     function someSpouses(a, b) { return hasSpouses(a) || hasSpouses(b) }
 
@@ -75,8 +77,8 @@ export default function Tree({ data_stash, main_id = null, is_vertical = true, n
     function hierarchyGetterParents(d) {
       console.log(d.rels);
 
-      // Check if the node has both 'father' and 'mother' properties in its 'rels'
-      if (!d.rels?.hasOwnProperty("father") || !d.rels?.hasOwnProperty("mother")) return;
+      // // Check if the node has both 'father' and 'mother' properties in its 'rels'
+      // if (!d.rels?.hasOwnProperty("father") || !d.rels?.hasOwnProperty("mother")) return;
 
       // If the node has parents, filter out any null values and map over the parent IDs
       // Return an array containing the corresponding parent nodes from the 'data_stash'
@@ -154,15 +156,15 @@ export default function Tree({ data_stash, main_id = null, is_vertical = true, n
       const d = tree[i];
 
       // Check if the current node is not an ancestry node and has spouses
-      if (!d.is_ancestry && d.data.rels?.spouses && d.data.rels?.spouses.length > 0) {
+      if (!d.is_ancestry && d.data.rels.spouses && d.data.rels.spouses.length > 0) {
         // Determine the side (left or right) based on the gender of the current node
         const side = d.data.data.gender === "M" ? -1 : 1;  // Female on the right
 
         // Adjust the x position of the current node based on the number of spouses and node separation
-        d.x += d.data.rels.spouses?.length / 2 * node_separation * side;
+        d.x += d.data.rels.spouses.length / 2 * node_separation * side;
 
         // Iterate over each spouse of the current node
-        d.data.rels?.spouses.forEach((sp_id, i) => {
+        d.data.rels.spouses.forEach((sp_id, i) => {
           // Find the spouse node in the data stash
           const spouse = { data: data_stash.find(d0 => d0.id === sp_id), added: true };
 

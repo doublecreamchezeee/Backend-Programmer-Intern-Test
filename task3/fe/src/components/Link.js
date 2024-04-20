@@ -14,7 +14,7 @@ export function createPath(d) {
 }
 
 // Function to create links between family members
-export function createLinks({ d, tree }) {
+export function createLinks({ d, tree, is_vertical }) {
     const links = [];
 
     // Function to handle links connecting a person to their parents
@@ -65,9 +65,9 @@ export function createLinks({ d, tree }) {
         }
     }
 
+    if (d.data.rels.spouses && d.data.rels.spouses.length > 0) handleSpouse({ d });
     handleAncestrySide({ d });
     handleProgenySide({ d });
-    handleSpouse({ d });
 
     return links;
 }
