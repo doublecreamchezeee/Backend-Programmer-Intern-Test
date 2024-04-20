@@ -59,10 +59,6 @@ export function createLinks({ d, tree }) {
                 // Create a link and add it to the array
                 links.push({
                     d: [[d.x, d.y], [spouse.x, spouse.y]],
-                    _d: () => [
-                        [d.x, d.y],
-                        [d.x - .0001, d.y]
-                    ],
                     curve: false, id: [d.data.id, spouse.data.id].join(", "), depth: d.depth, spouse: true, is_ancestry: spouse.is_ancestry
                 });
             });

@@ -13,7 +13,7 @@ export default function Tree({ data_stash, main_id = null, is_vertical = true, n
   nodePositioning({ tree, is_vertical })
 
   const dim = TreeDim(tree, node_separation, level_separation, is_vertical)
-
+  
   return { data: tree, data_stash, dim }
 
 
