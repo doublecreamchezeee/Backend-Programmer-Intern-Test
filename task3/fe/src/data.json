@@ -2,16 +2,16 @@
     {
         "rels": {
             "children": [
-                "3",
-                "4"
+                "5",
+                "6"
             ],
             "spouses": [
                 "2"
             ]
         },
         "data": {
-            "firstName": "Thành",
-            "lastName": "Trí",
+            "firstName": "Abe",
+            "lastName": "Simpson",
             "birthday": "15/10/2003",
             "gender": "M"
         },
@@ -25,13 +25,13 @@
                 "1"
             ],
             "children": [
-                "3",
-                "4"
+                "5",
+                "6"
             ]
         },
         "data": {
-            "firstName": "Khải ",
-            "lastName": "Hoàn",
+            "firstName": "Mona ",
+            "lastName": "Simpson",
             "birthday": "27/01/2002",
             "gender": "F"
         },
@@ -41,35 +41,17 @@
     },
     {
         "rels": {
-            "spouses": [],
-            "children": [],
-            "father": "1",
-            "mother": "2"
-        },
-        "data": {
-            "firstName": "Gia",
-            "lastName": "Minh",
-            "birthday": "01/02/2020",
-            "gender": "M"
-        },
-        "createdAt": "2024-20-4",
-        "updatedAt": "2024-20-4",
-        "id": "4"
-    },
-    {
-        "rels": {
             "spouses": [
-                "5"
+                "4"
             ],
             "children": [
-            ],
-            "father": "1",
-            "mother": "2"
+                "7"
+            ]
         },
         "data": {
-            "firstName": "Anh",
-            "lastName": "Tuấn",
-            "birthday": "01/01/2010",
+            "firstName": "Clancy",
+            "lastName": "Bouver",
+            "birthday": "27/01/2002",
             "gender": "M"
         },
         "createdAt": "2024-19-4",
@@ -82,17 +64,137 @@
                 "3"
             ],
             "children": [
-                
+                "7"
             ]
         },
         "data": {
-            "firstName": "Nhật",
-            "lastName": "Trí",
+            "firstName": "Jacqueline",
+            "lastName": "Bouver",
+            "birthday": "27/01/2002",
+            "gender": "F"
+        },
+        "createdAt": "2024-19-4",
+        "updatedAt": "2024-19-4",
+        "id": "4"
+    },      
+    {
+        "rels": {
+            "spouses": [],
+            "children": [],
+            "father": "1",
+            "mother": "2"
+        },
+        "data": {
+            "firstName": "Herb",
+            "lastName": "Simpson",
+            "birthday": "01/02/2020",
+            "gender": "M"
+        },
+        "createdAt": "2024-20-4",
+        "updatedAt": "2024-20-4",
+        "id": "5"
+    },
+    {
+        "rels": {
+            "spouses": [
+                "7"
+            ],
+            "children": [
+                "8",
+                "9",
+                "10"
+            ],
+            "father": "1",
+            "mother": "2"
+        },
+        "data": {
+            "firstName": "Homer",
+            "lastName": "Simpson",
+            "birthday": "01/01/2010",
+            "gender": "M"
+        },
+        "createdAt": "2024-19-4",
+        "updatedAt": "2024-19-4",
+        "id": "6"
+    },
+    {
+        "rels": {
+            "spouses": [
+                "6"
+            ],
+            "children": [
+               "8",
+               "9",
+               "10"
+            ], 
+            "father": "3",
+            "mother": "4"
+        },
+        "data": {
+            "firstName": "Marge",
+            "lastName": "Bouver",
             "birthday": "01/01/2010",
             "gender": "F"
         },
         "createdAt": "2024-19-4",
         "updatedAt": "2024-19-4",
-        "id": "5"
+        "id": "7"
+    },
+    {
+        "rels": {
+            "spouses": [
+            ],
+            "children": [
+            ], 
+            "father": "6",
+            "mother": "7"
+        },
+        "data": {
+            "firstName": "Bart",
+            "lastName": "Simpson",
+            "birthday": "01/01/2010",
+            "gender": "M"
+        },
+        "createdAt": "2024-19-4",
+        "updatedAt": "2024-19-4",
+        "id": "8"
+    },
+    {
+        "rels": {
+            "spouses": [
+            ],
+            "children": [
+            ], 
+            "father": "6",
+            "mother": "7"
+        },
+        "data": {
+            "firstName": "Lisa",
+            "lastName": "Simpson",
+            "birthday": "01/01/2010",
+            "gender": "M"
+        },
+        "createdAt": "2024-19-4",
+        "updatedAt": "2024-19-4",
+        "id": "9"
+    },
+    {
+        "rels": {
+            "spouses": [
+            ],
+            "children": [
+            ], 
+            "father": "6",
+            "mother": "7"
+        },
+        "data": {
+            "firstName": "Maggie",
+            "lastName": "Simpson",
+            "birthday": "01/01/2010",
+            "gender": "M"
+        },
+        "createdAt": "2024-19-4",
+        "updatedAt": "2024-19-4",
+        "id": "10"
     }
 ]

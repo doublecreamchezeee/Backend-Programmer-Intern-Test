@@ -38,6 +38,7 @@ export function createLinks({ d, tree, is_vertical }) {
         // Iterate over each child
         d.children.forEach((child) => {
             // Find the position of the other parent
+            console.log('value pass', child, d, tree)
             const other_parent = otherParent(child, d, tree)
             const sx = other_parent.sx
             // Create a link and add it to the array
@@ -97,5 +98,6 @@ function linkId(...args) {
 
 // Function to find the other parent of a child
 function otherParent(d, p1, data) {
+    console.log(data.find(d0 => (d0.data.id !== p1.data.id) && ((d0.data.id === d.data.rels.mother) || (d0.data.id === d.data.rels.father))))
     return data.find(d0 => (d0.data.id !== p1.data.id) && ((d0.data.id === d.data.rels.mother) || (d0.data.id === d.data.rels.father)));
 }
