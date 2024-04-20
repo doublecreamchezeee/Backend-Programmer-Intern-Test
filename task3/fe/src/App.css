@@ -1,38 +1,46 @@
-.App {
-  text-align: center;
+.ftms {
+  height: 100vh;
+  max-width: 100%;
+  margin: auto;
+  position: relative;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.ftms .cursor-pointer {
+  cursor: pointer;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.ftms svg.main_svg {
+  width: 100%;
+  height: 100%;
+  background-color: #5f5f6b; 
+  color: #29434e;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.ftms svg.main_svg text {
+  fill: currentColor;
 }
 
-.App-link {
-  color: #61dafb;
+.ftms rect.card-female,
+.ftms .card-female .card-body-rect,
+.ftms .card-female .text-overflow-mask {
+  fill: #6ce7be; 
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.ftms rect.card-male,
+.ftms .card-male .card-body-rect,
+.ftms .card-male .text-overflow-mask {
+  fill: #b47c5c; 
+}
+
+.ftms .card-male a {
+  fill: #ffffff; 
+}
+
+.ftms .card-main {
+  stroke: #000;
+}
+
+.ftms .link_particles {
+  transform-origin: 50% 50%;
+  transition: 1s;
 }
