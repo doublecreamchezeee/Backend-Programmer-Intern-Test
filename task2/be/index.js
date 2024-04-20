@@ -4,18 +4,26 @@ const cors = require('cors');
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 9000;
+const errorHandler = require('./middlewares/errorHandle')
+const authenticate = require('./middlewares/authenticate');
+const { validateGetUserInput, validateUpdateUserInput } = require('./middlewares/inputValidate');
 
 app.use(cors({
     origin: 'http://3.27.58.162:3000'
 }));
 
+// app.use(cors({
+//     origin: 'http://localhost:3000'
+// }));
+
 // Middleware
 app.use(express.json()); 
 app.use(express.urlencoded({ extended: true }));
+app.use(errorHandler.errorHandler);
 
 // Routes
-app.get('/', userController.getUser);
-app.post('/update', userController.updateUser);
+app.get('/', authenticate.authenticate, userController.getUser);
+app.post('/update', authenticate.authenticate, validateUpdateUserInput, userController.updateUser);
 
 // Create HTTP server
 const server = http.createServer(app);

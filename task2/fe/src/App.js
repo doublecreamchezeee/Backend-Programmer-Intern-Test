@@ -7,7 +7,13 @@ function App() {
   const [searchValue, setSearchValue] = useState('');
 
   useEffect(() => {
-    axios.get('http://54.253.35.37:9000/')
+    axios.get('http://54.253.35.37:9000/'
+      // axios.get(`http://localhost:9000`
+      , {
+        headers: {
+          authorization: 'thanhtri'
+        }
+      })
       .then(response => {
         setUserData(response.data);
       })
@@ -21,7 +27,13 @@ function App() {
   };
 
   const handleSearch = () => {
-    axios.get(`http://54.253.35.37:9000?name=${searchValue}`)
+    axios.get(`http://54.253.35.37:9000?name=${searchValue}`
+      // axios.get(`http://localhost:9000?name=${searchValue}`
+      , {
+        headers: {
+          authorization: 'thanhtri'
+        }
+      })
       .then(response => {
         setUserData(response.data);
       })
@@ -45,7 +57,21 @@ function App() {
   const handleUpdateAll = async () => {
     try {
       console.log(userData)
-      const response = await axios.post('http://localhost:9000/update', userData);
+      const response =
+        axios.post(`http://54.253.35.37:9000/update`
+        // axios.post('http://localhost:9000/update'
+          , userData
+          , {
+            headers: {
+              authenticate: 'thanhtri'
+            }
+          })
+          .then(response => {
+            console.log('Update successful:', response.data);
+          })
+          .catch(error => {
+            console.error('Error updating data:', error);
+          });
       console.log('Update successful:', response.data);
     } catch (error) {
       console.error('Error updating data:', error);
