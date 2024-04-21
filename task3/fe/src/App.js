@@ -4,6 +4,9 @@ import data from './data.json';
 import createStore from './redux/createStore';
 import TreeDisplay from './utils/TreeDisplay';
 import Card from './components/Card';
+import ExportButton from './components/ExportButton';
+import ImportButton from './components/ImportButton';
+const fs = require('fs');
 
 function App() {
   const [members, setMembers] = useState([]);
@@ -48,11 +51,40 @@ function App() {
     console.log(data);
   }, []);
 
+  const handleUpload = (contents) => {
+    // Handle the uploaded JSON contents
+    try {
+      const data = JSON.parse(contents);
+      if (Object.keys(data).length === 0) {
+        console.log("The JSON file is empty.");
+      } else {
+        console.log("Uploaded JSON contents:", data);
+        // Write the contents to data.json
+        fs.writeFile('data.json', JSON.stringify(data), (err) => {
+          if (err) {
+            console.error("Error writing to data.json:", err);
+          } else {
+            console.log("Data has been written to data.json");
+          }
+        });
+      }
+    } catch (error) {
+      console.error("Error parsing JSON:", error);
+    }
+  };
+
   return (
-    <div className="ftms" id="FamilyTree">
-      <div className="tree-cont">
+    <div className='container'>
+      <div className='nav'>
+      <ExportButton/>
+      <ImportButton  onUpload={handleUpload}/>
+      </div>
+      <div className="ftms" id="FamilyTree">
+        <div className="tree-cont">
+        </div>
       </div>
     </div>
+
   );
 }
 
