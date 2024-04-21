@@ -7,11 +7,11 @@ function App() {
   const [searchValue, setSearchValue] = useState('');
 
   useEffect(() => {
-    axios.get('http://54.253.35.37:9000/'
+    axios.get(`${process.env.REACT_APP_API_PUBLIC_URL}`
       // axios.get(`http://localhost:9000`
       , {
         headers: {
-          authorization: 'thanhtri'
+          authorization: process.env.REACT_APP_API_PUBLIC_URL
         }
       })
       .then(response => {
@@ -27,11 +27,11 @@ function App() {
   };
 
   const handleSearch = () => {
-    axios.get(`http://54.253.35.37:9000?name=${searchValue}`
+    axios.get(`${process.env.REACT_APP_API_PUBLIC_URL}?name=${searchValue}`
       // axios.get(`http://localhost:9000?name=${searchValue}`
       , {
         headers: {
-          authorization: 'thanhtri'
+          authorization: process.env.REACT_APP_API_PUBLIC_URL
         }
       })
       .then(response => {
@@ -58,12 +58,12 @@ function App() {
     try {
       console.log(userData)
       const response =
-        axios.post(`http://54.253.35.37:9000/update`
+        axios.post(`${process.env.REACT_APP_API_PUBLIC_URL}/update`
         // axios.post('http://localhost:9000/update'
           , userData
           , {
             headers: {
-              authorization: 'thanhtri'
+              authorization: process.env.REACT_APP_API_PUBLIC_URL
             }
           })
           .then(response => {

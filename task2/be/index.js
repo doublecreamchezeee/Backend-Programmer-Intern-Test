@@ -7,9 +7,9 @@ const PORT = process.env.PORT || 9000;
 const errorHandler = require('./middlewares/errorHandle')
 const authenticate = require('./middlewares/authenticate');
 const { validateGetUserInput, validateUpdateUserInput } = require('./middlewares/inputValidate');
-
+require('dotenv').config()
 app.use(cors({
-    origin: 'http://3.27.58.162:3000'
+    origin: process.env.REACT_PUBLIC_URL,
 }));
 
 // app.use(cors({
