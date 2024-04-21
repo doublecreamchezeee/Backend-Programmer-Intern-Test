@@ -11,7 +11,7 @@ function App() {
       // axios.get(`http://localhost:9000`
       , {
         headers: {
-          authorization: process.env.REACT_APP_API_PUBLIC_URL
+          authorization: process.env.REACT_APP_API_KEY
         }
       })
       .then(response => {
@@ -31,7 +31,7 @@ function App() {
       // axios.get(`http://localhost:9000?name=${searchValue}`
       , {
         headers: {
-          authorization: process.env.REACT_APP_API_PUBLIC_URL
+          authorization: process.env.REACT_APP_API_KEY
         }
       })
       .then(response => {
@@ -63,7 +63,7 @@ function App() {
           , userData
           , {
             headers: {
-              authorization: process.env.REACT_APP_API_PUBLIC_URL
+              authorization: process.env.REACT_APP_API_KEY
             }
           })
           .then(response => {
