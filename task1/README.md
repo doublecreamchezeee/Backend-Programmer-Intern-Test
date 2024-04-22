@@ -1,3 +1,20 @@
+# Task 1- T1.1 - Arrange string
+Task T1.1 is an implementation of the Quick Sort algorithm.
+Return the arrange string in acessding order.
+
+## Usage
+```javascript
+var inputString = "webmaster";
+var outputString = arrangeAlphabetically(inputString);
+console.log(outputString); // Output: abeemrstw
+```
+
+## Implementation Details
+The QuickSort algorithm implemented in this codebase consists of the following components:
+
+- `partition`: This function takes an array, a low index, and a high index as parameters and partitions the array around a pivot element. It returns the index of the pivot element after partitioning.
+- `quickSort`: This function recursively sorts the array using the QuickSort algorithm. It partitions the array and calls itself recursively on the subarrays before and after the pivot.
+
 # Task 1 - T1.2 - Run-Length Encoding (RLE)
 Task T1.2 is an implementation of the Run-Length Encoding (RLE) algorithm. The rle function takes a string as input and returns its run-length encoded representation.
 

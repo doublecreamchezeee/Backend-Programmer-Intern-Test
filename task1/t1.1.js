@@ -3,30 +3,43 @@ function swap(arr, index1, index2) {
     arr[index1] = arr[index2];
     arr[index2] = temp;
 }
-function arrangeAlphabetically(str) {
-    // Convert the string to an array of characters
-    var chars = str.split("");
-    
-    // Selection sort algorithm
-    for (var i = 0; i < chars.length - 1; i++) {
-        var minIndex = i;
-        for (var j = i + 1; j < chars.length; j++) {
-            if (chars[j] < chars[minIndex]) {
-                minIndex = j;
-            }
-        }
-        if (minIndex !== i) {
-            swap(chars, i, minIndex);
+
+// Function to partition the array and return the index of the pivot element
+function partition(arr, low, high) {
+    var pivot = arr[high];
+    var i = low - 1;
+
+    // Iterate through the array from low to high
+    for (var j = low; j < high; j++) {
+        if (arr[j] < pivot) {
+            i++; 
+            swap(arr, i, j); 
         }
     }
-    
-    // Join the sorted array back into a string
+    swap(arr, i + 1, high);
+    return i + 1;
+}
+
+// Function to recursively sort the array using quicksort
+function quickSort(arr, low, high) {
+    if (low < high) {
+        // pi is the partitioning index, arr[pi] is now at right place
+        var pi = partition(arr, low, high);
+        // Recursively sort elements before partition and after partition
+        quickSort(arr, low, pi - 1);
+        quickSort(arr, pi + 1, high);
+    }
+}
+
+// Function to arrange characters of a string alphabetically using quicksort
+function arrangeAlphabetically(str) {
+    var chars = str.split("");
+    quickSort(chars, 0, chars.length - 1);
     var sortedStr = chars.join("");
-    
     return sortedStr;
 }
 
+// Example usage
 var inputString = "webmaster";
 var outputString = arrangeAlphabetically(inputString);
-console.log(outputString); 
-// Output: abeemrstw
+console.log(outputString); // Output: abeemrstw
