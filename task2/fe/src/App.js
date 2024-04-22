@@ -5,41 +5,39 @@ import './App.css';
 function App() {
   const [userData, setUserData] = useState([]);
   const [searchValue, setSearchValue] = useState('');
+  const [userChanged, setUserChanged] = useState(false); 
 
   useEffect(() => {
-    axios.get(`${process.env.REACT_APP_API_PUBLIC_URL}`
-      // axios.get(`http://localhost:9000`
-      , {
-        headers: {
-          authorization: process.env.REACT_APP_API_KEY
-        }
-      })
-      .then(response => {
-        setUserData(response.data);
-      })
-      .catch(error => {
-        console.error('Error fetching data:', error);
-      });
-  }, []);
+    axios.get(`${process.env.REACT_APP_API_URL}`, {
+      headers: {
+        authorization: process.env.REACT_APP_API_KEY
+      }
+    })
+    .then(response => {
+      setUserData(response.data);
+      setUserChanged(false)
+    })
+    .catch(error => {
+      console.error('Error fetching data:', error);
+    });
+  }, [userChanged]);
 
   const handleSearchChange = (e) => {
     setSearchValue(e.target.value);
   };
 
   const handleSearch = () => {
-    axios.get(`${process.env.REACT_APP_API_PUBLIC_URL}?name=${searchValue}`
-      // axios.get(`http://localhost:9000?name=${searchValue}`
-      , {
-        headers: {
-          authorization: process.env.REACT_APP_API_KEY
-        }
-      })
-      .then(response => {
-        setUserData(response.data);
-      })
-      .catch(error => {
-        console.error('Error fetching data:', error);
-      });
+    axios.get(`${process.env.REACT_APP_API_URL}?name=${searchValue}`, {
+      headers: {
+        authorization: process.env.REACT_APP_API_KEY
+      }
+    })
+    .then(response => {
+      setUserData(response.data);
+    })
+    .catch(error => {
+      console.error('Error fetching data:', error);
+    });
   };
 
   const handleDataChange = (e, userId, field) => {
@@ -56,23 +54,14 @@ function App() {
 
   const handleUpdateAll = async () => {
     try {
-      console.log(userData)
-      const response =
-        axios.post(`${process.env.REACT_APP_API_PUBLIC_URL}/update`
-        // axios.post('http://localhost:9000/update'
-          , userData
-          , {
-            headers: {
-              authorization: process.env.REACT_APP_API_KEY
-            }
-          })
-          .then(response => {
-            console.log('Update successful:', response.data);
-          })
-          .catch(error => {
-            console.error('Error updating data:', error);
-          });
+      console.log(userData);
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/update`, userData, {
+        headers: {
+          authorization: process.env.REACT_APP_API_KEY
+        }
+      });
       console.log('Update successful:', response.data);
+      setUserChanged(true)
     } catch (error) {
       console.error('Error updating data:', error);
     }
@@ -113,5 +102,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;

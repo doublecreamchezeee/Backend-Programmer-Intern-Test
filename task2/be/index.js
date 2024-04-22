@@ -9,7 +9,7 @@ const authenticate = require('./middlewares/authenticate');
 const { validateGetUserInput, validateUpdateUserInput } = require('./middlewares/inputValidate');
 require('dotenv').config()
 app.use(cors({
-    origin: process.env.REACT_PUBLIC_URL,
+    origin: process.env.REACT_URL,
 }));
 
 // app.use(cors({
