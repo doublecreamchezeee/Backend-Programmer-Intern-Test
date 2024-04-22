@@ -38,45 +38,7 @@
         "createdAt": "2024-19-4",
         "updatedAt": "2024-19-4",
         "id": "2"
-    },
-    {
-        "rels": {
-            "spouses": [
-                "4"
-            ],
-            "children": [
-                "7"
-            ]
-        },
-        "data": {
-            "firstName": "Clancy",
-            "lastName": "Bouver",
-            "birthday": "27/01/2002",
-            "gender": "M"
-        },
-        "createdAt": "2024-19-4",
-        "updatedAt": "2024-19-4",
-        "id": "3"
-    },
-    {
-        "rels": {
-            "spouses": [
-                "3"
-            ],
-            "children": [
-                "7"
-            ]
-        },
-        "data": {
-            "firstName": "Jacqueline",
-            "lastName": "Bouver",
-            "birthday": "27/01/2002",
-            "gender": "F"
-        },
-        "createdAt": "2024-19-4",
-        "updatedAt": "2024-19-4",
-        "id": "4"
-    },      
+    },    
     {
         "rels": {
             "spouses": [],
@@ -126,9 +88,7 @@
                "8",
                "9",
                "10"
-            ], 
-            "father": "3",
-            "mother": "4"
+            ]
         },
         "data": {
             "firstName": "Marge",

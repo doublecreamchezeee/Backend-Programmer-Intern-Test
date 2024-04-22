@@ -7,6 +7,9 @@ export function CardBody({ d, card_dim, card_display }) {
           <text clip-path="url(#card_text_clip)">
             <tspan x="${0}" dy="${14}">${card_display[0](d.data)}</tspan>
           </text>
+          <text transform="translate(${card_dim.text_x-75}, ${card_dim.text_y+20})">            
+            <tspan>ID: ${d.data.id}</tspan>
+          </text>
   <!--        <rect width="${card_dim.w - card_dim.text_x - 10}" height="${card_dim.h - 20}" style="mask: url(#fade)" class="text-overflow-mask" /> -->
         </g>
       </g>
@@ -14,7 +17,7 @@ export function CardBody({ d, card_dim, card_display }) {
   }
 }
 
-export function CardImage({ d, image, card_dim, maleIcon, femaleIcon }) {
+export function CardImage({ d, card_dim }) {
   return ({
     template: (`
     <g style="transform: translate(${card_dim.img_x}px,${card_dim.img_y}px);" class="card_image" clip-path="url(#card_image_clip)">
@@ -22,4 +25,23 @@ export function CardImage({ d, image, card_dim, maleIcon, femaleIcon }) {
       </g>
   `)
   })
+}
+
+export function CardBirthday({d, card_dim, card_display}){
+  return {
+    template: (`
+      <g class="card-body">
+        <rect width="${card_dim.w}" height="${card_dim.h}" class="card-body-rect" />
+        <g transform="translate(${card_dim.text_x}, ${card_dim.text_y})">
+          <text clip-path="url(#card_text_clip)">
+            <tspan x="${0}" dy="${14}">${card_display[1](d.data)}</tspan>
+          </text>
+          <text transform="translate(${card_dim.text_x-75}, ${card_dim.text_y+20})">            
+            <tspan>ID: ${d.data.id}</tspan>
+          </text>
+  <!--        <rect width="${card_dim.w - card_dim.text_x - 10}" height="${card_dim.h - 20}" style="mask: url(#fade)" class="text-overflow-mask" /> -->
+        </g>
+      </g>
+    `)
+  }
 }

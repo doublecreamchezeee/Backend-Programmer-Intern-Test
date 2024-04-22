@@ -24,12 +24,14 @@ export default function createStore(initial_state) {
             },
             mainId: main_id => state.main_id = main_id,
             data: data => state.data = data,
+            displayType: type => state.displayType = type,
         },
         getData = () => state.data,
         getTree = () => state.tree,
+        displayType = () => state.displayType,
         setOnUpdate = (f) => onUpdate = f,
         methods = {};
 
     // Return an object containing state, update functions, and utility functions
-    return { state, update, getData, getTree, setOnUpdate, methods };
+    return { state, update, getData, getTree, displayType, setOnUpdate, methods };
 }

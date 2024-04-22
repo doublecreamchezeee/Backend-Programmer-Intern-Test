@@ -6,9 +6,9 @@ import TreeDisplay from './utils/TreeDisplay';
 import Card from './components/Card';
 import ExportButton from './components/ExportButton';
 import ImportButton from './components/ImportButton';
-const fs = require('fs');
+// const fs = require('fs');
 
-function App() {
+function App(props) {
   const [members, setMembers] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -21,6 +21,7 @@ function App() {
         data: members,
         node_separation: 250,
         level_separation: 150,
+        displayType: props.displayType
       });
       const view = TreeDisplay({
         store,
@@ -31,7 +32,9 @@ function App() {
         store,
         svg: view.svg,
         card_dim: card_dim,
-        card_display: card_display,
+        card_display: [            
+          (d) => `${d.data["firstName"] || ""} ${d.data["lastName"] || ""}`,
+          (d) => `${d.data["birthday"] || ""}`],
       });
       view.setCard(UserCard);
       store.setOnUpdate((props) => view.update(props || {}));
@@ -40,10 +43,13 @@ function App() {
   }, [loading, members]);
 
   const cardDisplay = () => {
-    return [
-      (d) => `${d.data["firstName"] || ""} ${d.data["lastName"] || ""}`,
-    ];
-  };
+    const d1 = d => `${d.data['firstName'] || ''} ${d.data['lastName'] || ''}`,
+        d2 = d => `${d.data['birthday'] || ''}`
+    d1.create_form = "{firstName} {lastName}"
+    d2.create_form = "{birthday}"
+
+    return [d1, d2]
+  }
 
   useEffect(() => {
     setMembers(data);
@@ -51,33 +57,33 @@ function App() {
     console.log(data);
   }, []);
 
-  const handleUpload = (contents) => {
-    // Handle the uploaded JSON contents
-    try {
-      const data = JSON.parse(contents);
-      if (Object.keys(data).length === 0) {
-        console.log("The JSON file is empty.");
-      } else {
-        console.log("Uploaded JSON contents:", data);
-        // Write the contents to data.json
-        fs.writeFile('data.json', JSON.stringify(data), (err) => {
-          if (err) {
-            console.error("Error writing to data.json:", err);
-          } else {
-            console.log("Data has been written to data.json");
-          }
-        });
-      }
-    } catch (error) {
-      console.error("Error parsing JSON:", error);
-    }
-  };
+  // const handleUpload = (contents) => {
+  //   // Handle the uploaded JSON contents
+  //   try {
+  //     const data = JSON.parse(contents);
+  //     if (Object.keys(data).length === 0) {
+  //       console.log("The JSON file is empty.");
+  //     } else {
+  //       console.log("Uploaded JSON contents:", data);
+  //       // Write the contents to data.json
+  //       fs.writeFile('data.json', JSON.stringify(data), (err) => {
+  //         if (err) {
+  //           console.error("Error writing to data.json:", err);
+  //         } else {
+  //           console.log("Data has been written to data.json");
+  //         }
+  //       });
+  //     }
+  //   } catch (error) {
+  //     console.error("Error parsing JSON:", error);
+  //   }
+  // };
 
   return (
     <div className='container'>
       <div className='nav'>
       <ExportButton/>
-      <ImportButton  onUpload={handleUpload}/>
+      {/* <ImportButton  onUpload={handleUpload}/> */}
       </div>
       <div className="ftms" id="FamilyTree">
         <div className="tree-cont">
