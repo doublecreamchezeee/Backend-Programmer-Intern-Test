@@ -23,6 +23,7 @@ For more detail about implementation or development about each task, please move
 **1. Connecting MongoDB with Express Backend**
 - Issue: Encountered errors when accessing MongoDB from different IP addresses, resulting in connection refusal. This was noticed while conducting the test.
 - Solution: Implement security measures such as allowing all traffic or configuring specific traffic permissions in MongoDB settings to resolve this issue.
+
 **2. Custom Configurations for EC2 Instances in AWS**
 - Issue: Custom configurations for EC2 instances in AWS can impact deployment and server operations on virtual machines.
 - Solution: Recommend utilizing default settings whenever possible and thoroughly reviewing security measures for all paths to mitigate potential risks.
