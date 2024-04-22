@@ -14,6 +14,7 @@ To run the project locally for development:
 
 ## Features
 - **Export JSON** : Download the file data of the family tree in the json format.
+- **Edit Data** : Edit the data of family tree directly in the data.json file
 
 ## Implementation
 Move to each foler to see the way of implementation for each component and logic
